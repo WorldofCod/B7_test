@@ -21,3 +21,7 @@ class Book(models.Model):
         else:
             print("New book is created")
         super(Book,self).save(*args,**kwargs)
+
+
+    def company():
+        print("Hello")    
