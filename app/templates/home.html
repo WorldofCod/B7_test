@@ -1,0 +1,49 @@
+
+<html>
+    <head>
+        <title>Welcome Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+<h1>Book Store</h1>
+<hr>   <!--for horizontal line-->
+        <form action="{% url 'home' %}"  method="post">
+            {% csrf_token %}
+            <div class="m-2" "mt-3">
+                <div class="col-sm-4 p-0" class="form-group">
+                    <label  class="form-label">Book ID:</label>
+                    <input type="number" class="form-control"  name="bid" value="{{book.id}}" readonly>
+                </div>
+                <div class="col-sm-4 p-0">
+                    <label  class="form-label">Book Title:</label>
+                    <input type="text" class="form-control"   placeholder="Enter Book title "name="btitle" value="{{book.title}}">
+                </div>
+                <div class="col-sm-4 p-0">
+                    <label class="form-label">Book Author :</label>
+                    <input type="text" class="form-control"  placeholder="Enter Book Author" name="bauthor" value="{{book.author}}">
+                </div>
+                <div class="col-sm-4 p-0" class="mb-3">
+                    <label  class="form-label">Book Price:</label>
+                    <input type="number" class="form-control"  placeholder="Enter Book Price" name="bprice" value="{{book.price}}">
+                </div>
+            </div>
+            
+            <div class="form-check mb-3">
+                <label class="form-check-label">
+                    {% if book.ispublished %}
+                        <input class="form-check-input" type="checkbox" name="bpub" checked> Is Published</label> 
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" name="bpub"> Is Published</label>
+                    {% endif %}
+
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+
+        <a href="{% url 'show_books' %}">Show Books</a>
+
+
+</body>
+</html> 

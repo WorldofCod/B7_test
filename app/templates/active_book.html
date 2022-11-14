@@ -1,0 +1,30 @@
+{% comment %} #active _books = is_Deleted=0 ahe {% endcomment %}
+<h1>active book</h1>
+<div>
+    <table border= "2px" style="width:60%">
+        <tr>
+          <th>Id </th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Price</th>
+          <th>IsPublished</th>
+        </tr>
+        {% for book in all_books %}
+        <tr>
+          <td>{{ book.id }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.price }}</td>
+            {% if book.ispublished %}
+                <td>Yes</td>
+            {% else %}
+                <td>No</td>
+            {% endif %}
+            
+        </form>
+      </div>
+        </td>
+        </tr>
+        {% endfor %}
+      </table>
+      <a href="{% url 'show_books' %}">Show Books</a>
